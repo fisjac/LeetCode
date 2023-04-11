@@ -1,6 +1,6 @@
 class Solution:
     def isValidSection(self, section: List[str]) -> bool:
-        numbers_seen = set() # initialize hashmap
+        numbers_seen = set() # initialize hashset
         # print(section)
         for num in section: # iterate through list
             if num != '.' and num in numbers_seen: # if is a number and number exists
@@ -25,9 +25,9 @@ class Solution:
 
         # check squares
             # print('------squares------')
-            row = (i // 3)*3
-            col = (i % 3)*3
-            if not self.isValidSection([board[row + (j // 3)][col + (j % 3)] for j in range(9)]):
+            box_row = (i // 3)*3
+            box_col = (i % 3)*3
+            if not self.isValidSection([board[box_row + (j // 3)][box_col + (j % 3)] for j in range(9)]):
                 return False
 
         return True
